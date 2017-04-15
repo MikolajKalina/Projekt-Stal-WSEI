@@ -1,0 +1,293 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<script src="js/pgb.js"></script>
+		<script src="js/quiz.js"></script>
+		<script src="cordova.js"></script>
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<script src="js/jquery-2.1.4.min.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+	</head>
+	<body onload=" start();">
+		
+		<!-- Strona glowna  -->
+		<div data-role="page" id="pageone" align="center">
+		
+		
+		  <div data-role="header" data-position="fixed" style="background-color: #001;">
+			<h1><font color="#bbb"> McAstronomia Mobile </font></h1>
+		  </div>
+		  
+		  
+		  <div data-role="main" class="ui-content" id="main" style="background-color: #000015;">
+				
+			<a class="ui-btn ui-btn-inline ui-corner-all ui-shadow" style="background-color: #002; width: 70%;" onclick="OtworzStrone();"><font color="#bbb"><i> BLOG ASTRONOMICZNY </font></a>
+			<br><br>
+			<a href="#kalkulator" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" style="background-color: #001331; width: 70%; " onclick="WlaczQuiz();"><font color="#bbb"> KALKULATOR ASTRONOMICZNY  </font></a>
+			<br><br>
+			<a href="#quiz" class="ui-btn ui-btn-inline ui-corner-all ui-shadow"  style="background-color: #102540; width: 70%;"><font color="#bbb">QUIZ ASTRONOMICZNY</font></a>
+			<br><br>
+			<a href="#pacman" class="ui-btn ui-btn-inline ui-corner-all ui-shadow"  style="background-color: #133240; width: 70%;"><font color="#bbb">PLANET-MAN</font></a>
+			<br><br>
+			<a href="#wisielec" class="ui-btn ui-btn-inline ui-corner-all ui-shadow"  style="background-color: #223533; width: 70%;"><font color="#bbb">GRA ORION</font></a>
+			<br><br>
+			<a href="#info" class="ui-btn ui-btn-inline ui-corner-all ui-shadow"  style="background-color: #344835; width: 70%;"><font color="#bbb">INFORMACJE O MNIE</i></font></a>
+			<br><br>
+			<a class="ui-btn ui-btn-inline ui-corner-all ui-shadow" style="background-color: #575722; width: 70%;" onclick='exitApp();'><font color="#bbb">WYJDŹ</i></font></a>
+
+			
+
+			<br><br>
+			
+		
+			
+		  </div>
+		  <div data-role="footer" data-position="fixed" style="background-color: #772; ">
+		    
+		    <h1><font color="#111">(c) McGoris Polska </font></h1>
+		  </div> 
+		</div> 
+		
+<!-- Quiz -->
+		<div data-role="page" id="quiz">
+		
+			<div data-role="header" style="background-color: #003;">
+				<h1> <font color='#bbb'>Quiz</font></h1>	
+			</div>
+			
+			<div data-role="main" class="ui-content" style="background-color: #001;">
+				
+					<div id="quizContainer" class="container">
+					<font color='#bbb'><div id="question" class="question"></div></font>
+					
+								<label class="option">
+									<input type="radio" name="option" value="1" /> <span id="opt1"></span></label>
+								<label class="option">
+									<input type="radio" name="option" value="2" /> <span id="opt2"></span></label>
+								<label class="option">
+									<input type="radio" name="option" value="3" /> <span id="opt3"></span></label>
+								<label class="option">
+									<input type="radio" name="option" value="4" /> <span id="opt4"></span></label>
+								<button id="nastepne" class="next-btn" onclick="wczytajNastepnePytanie();">Następne pytanie</button>
+					</div>
+					
+					<div id="result" class="container result" style="display:none;"></div>
+					
+		<script src="question.js"></script>
+		<script src="quiz.js"></script>
+
+<!--	Koniez quiza -->
+			
+				<div align="center">
+				
+				<a href="#zasadyquizu" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" style="background-color: #002;"><font color="#bbb"> Zasady Gry </font></a>
+				<a href="#pageone" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" style="background-color: #002;"><font color="#bbb"> Powrót do strony głównej </font></a>
+				</div>
+				<div id="result" class="containerResult" style="display:none;"></div>
+			</div>
+			<div data-role="footer" data-position="fixed" style="background-color: #003; ">
+			<h1><font color="#eee">(c) McGoris Polska </font></h1>
+		  </div> 
+			
+		</div>
+
+		<!-- Kalkulator -->
+		
+		<div data-role="page" id="kalkulator" style="background-color: #002;">
+		
+			<div data-role="header" data-position="fixed" style="background-color: #003;">
+				<h1> Kalkulator </h1>
+				
+			</div>
+			<div data-role="main" class="ui-content">
+				
+				<div id="pole1">
+					<input type="number"> </input>
+					<br>
+					<table border="0">
+						<tr><td>AU</td><td><input type="radio" id="radio_au1" name="a" ></input></td>
+							</tr>
+						<tr><td>Pc</td><td><input type="radio" id="radio_pc1" name="a"></input></td>
+							</tr>
+						<tr><td>KM</td><td> <input type="radio" id="radio_km1" name="a"></input></td>
+							</tr>
+						<tr><td>Ly</td><td> <input type="radio" id="radio_ly1" checked name="a"></input></td>
+						</tr>
+					</table>
+				
+				</div>
+				
+				<div id="pole2">
+			
+					<input type="number"> </input>
+					<br>
+					<table border="0">
+						<tr><td>AU</td><td><input type="radio" id="radio_au2" name="b"></input></td>
+					</tr>
+						<tr><td>Pc</td><td><input type="radio" id="radio_pc2" name="b"></input></td>
+					</tr>
+						<tr><td>KM</td><td> <input type="radio" id="radio_km2" checked name="b"></input></td>
+					</tr>
+						<tr><td>Ly</td><td> <input type="radio" id="radio_ly2" name="b"></input></td>
+					</tr>
+					</table>
+					<input type="submit" value="Przelicz" id="przelicz" name="buton"></input>
+					
+				</div>
+				
+			
+			</div>
+			<a href="#pageone" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" style="background-color: #003;"><font color="#bbb"> Powrót do strony głównej </font> </a>
+				<br>
+				
+			<div data-role="footer" style="background-color: #003; " data-position="fixed">
+			
+			<h1><font color="#eee">(c) McGoris Polska </font></h1>
+			
+		    </div> 
+		</div> 	
+
+		<!-- informacje -->
+		
+		<div data-role="page" id="info" style="background-color: #001;">
+		
+			<div data-role="header" style="background-color: #003;">
+				<h1> O mnie </h1>
+				
+			</div>
+			
+			<div data-role="main" class="ui-content" align="center">
+				<font color="#bbb">
+				<table border="0" style="width: 50%; ">
+					<tr><td> Imię: </td><td style="text-align: right;"> Marcin </td></tr>
+					<tr><td> Nazwisko: </td><td style="text-align: right;"> Goryl </td></tr>
+				</table>
+					<br>
+					<br>
+				<table border="0" style="width: 50%; ">	
+					<tr><td> </td><td style="text-align: right;"> Astronomia </td></tr>
+					<tr><td> Hobby: </td><td style="text-align: right;"> Fotografia </td></tr>
+					<tr><td></td><td style="text-align: right;"> Informatyka </td></tr>
+				</table>
+					<br>
+					<br>
+				<table border="0" style="width: 50%; ">		
+					<tr><td> Wiek: </td><td style="text-align: right;"> 23 </td></tr>
+				</table>	
+				</font>
+				<br>
+				<br>
+				
+				<a href="#pageone" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" style="background-color: #003;"><font color="#bbb"> Powrót do strony głównej </font></a>
+			</div>
+			
+			<div data-role="footer" data-position="fixed" style="background-color: #003;">
+				
+				<h1><font color="#eee">(c) McGoris Polska </font></h1>
+			
+			</div> 
+			
+		</div>		
+		
+		<!-- Wisielec -->
+		
+		<div data-role="page" id="wisielec" style="background-color: #001;">
+		
+			<div data-role="header" style="background-color: #002;">
+				<h1><font color="#bbb"> Gra Orion </font></h1>
+				
+			</div>
+				<div data-role="main" class="ui-content">
+					
+					<div id="plansza">
+					
+					</div>
+					
+					<div id="szubienica">
+					
+						<img src="img/A0.jpg">
+					
+					
+					</div>
+					
+					<div id="alfabet">
+					
+					
+					
+					</div>
+					
+					
+					
+					<div style="clear:both;">
+					
+					</div>
+				
+				</div>
+				
+				<div align="center">
+					<a href="javascript:location.reload()" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" style="background-color: #344836;"><font color="#aaa"> Odśwież </font> </a>
+					<a href="#zasady" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" style="background-color: #344836;"><font color="#aaa"> Zasady Gry </font> </a>
+					<a href="#pageone" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" style="background-color: #565624;"><font color="#aaa"> Powrót do strony głównej </font> </a>
+				</div>
+				
+				
+				
+				
+			<div data-role="footer" style="background-color: #772; ">
+			
+			<h1><font color="#bbb">(c) McGoris Polska </font></h1>
+		  </div> 
+		</div> 
+		
+		
+	<!-- zasady gry --> 
+	
+	<div data-role="page" id="zasady" style="background-color: #001;">
+		
+			<div data-role="header" style="background-color: #003;">
+				<h1><font color="#bbb"> Gra Orion - Zasady </font></h1>
+				
+			</div>
+				<div data-role="main" class="ui-content">
+					
+				<font color="#bbb">
+
+				Twoim zadaniem jest odgadnąć słowo/zdanie, które jest zakryte pionowymi kreskami. 
+				<br>
+				Masz do wyboru wszystkie litery alfabetu. Jeżeli dana litera istnieje, wstawiana jest w odpowiednie miejsce.
+				<br>
+				Jeżeli dana litera nie występuje, wtedy rysują się gwiazdy gwiazdozbioru Oriona.
+				<br> 
+				Jeżeli uda ci się odgadnąć słowo/zdanie, wygrywasz.
+				<br>
+				Jeżeli nie uda ci się odgadnąć i narysuje się cała konstelacja Oriona, przegrywasz.
+
+				</font>	
+					
+				
+				<div align="center">
+				
+				<a href="#wisielec" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" style="background-color: #003;"><font color="#bbb"> Powrót do gry </font> </a>
+				
+				</div>
+				
+				
+				
+				
+			<div data-role="footer"  data-position="fixed" style="background-color: #003; ">
+			
+			<h1><font color="#bbb">(c) McGoris Polska </font></h1>
+		  </div> 
+		</div> 
+		
+		
+		
+		
+		
+		
+		
+	</body>
+</html>
