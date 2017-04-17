@@ -1,7 +1,7 @@
 var currentQuestion = 0;
 var score = 0;
 var totQuestions = questions.length;
-
+var values = [];
 var container = document.getElementById('quizContainer');
 var questionEl = document.getElementById('question');
 var opt1 = document.getElementById('opt1');
@@ -10,6 +10,36 @@ var opt3 = document.getElementById('opt3');
 var opt4 = document.getElementById('opt4');
 var nextButton = document.getElementById('nextButton');
 var resultCont = document.getElementById('result');
+
+function checkIfOccur(cQ,values) {
+	
+	if (values.length == 0) {
+		values[0] = cQ;
+		return false;	
+	}	
+	else {
+
+		for(var a=0; a < values.length ; a++){
+			if (values[a]== cQ) {
+				return true;
+			}else{
+				values[values.length+1]=cQ;
+				return false;			
+			}
+			
+		}		
+		
+	}
+}
+
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
 
 function loadQuestion (questionIndex) {
 	var q = questions[questionIndex];
@@ -21,17 +51,39 @@ function loadQuestion (questionIndex) {
 };
 
 function loadNextQuestion () {
+
+	var flag = false;	
+	
+
+	while (true){
+	currentQuestion =Math.floor(Math.random()*totQuestions);
+	
+		if (checkIfOccur(currentQuestion, values) == false) {
+			break;		
+		}	
+	}
+
+	
+
+	
 	var selectedOption = document.querySelector('input[type=radio]:checked');
 	if(!selectedOption){
-		alert('Proszę zaznaczyć opcję!');
-		
+		alert('Proszę zaznaczyć opcję!');		
 	}
+	
+	
 	var answer = selectedOption.value;
-	if(questions[currentQuestion].answer == answer){
+	
+	if(questions[currentQuestion].answer == answer){		
+		sleep(500);
 		score += 10;
+	} else {				
+		alert('żle!');		
+		sleep(500);		
 	}
+		
 	selectedOption.checked = false;
-	currentQuestion++;
+	
 	if(currentQuestion == totQuestions - 1){
 		nextButton.textContent = 'Koniec';
 	}

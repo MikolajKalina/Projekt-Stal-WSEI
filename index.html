@@ -11,7 +11,7 @@
 		<script src="js/jquery.mobile-1.4.5.min.js"></script>
 		<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
 	</head>
-	<body onload=" start();">
+	<body onload=" start(); ">
 		
 		<!-- Strona glowna  -->
 		<div data-role="page" id="pageone" align="center">
@@ -61,17 +61,17 @@
 			<div data-role="main" class="ui-content" style="background-color: #001;">
 				
 					<div id="quizContainer" class="container">
-					<font color='#bbb'><div id="question" class="question"></div></font>
+					<font color='#bbb'><div id="question" class="question" style="background-color: #002;"></div></font>
 					
-								<label class="option">
-									<input type="radio" name="option" value="1" /> <span id="opt1"></span></label>
-								<label class="option">
-									<input type="radio" name="option" value="2" /> <span id="opt2"></span></label>
-								<label class="option">
-									<input type="radio" name="option" value="3" /> <span id="opt3"></span></label>
-								<label class="option">
-									<input type="radio" name="option" value="4" /> <span id="opt4"></span></label>
-								<button id="nastepne" class="next-btn" onclick="wczytajNastepnePytanie();">Następne pytanie</button>
+								<div class="option">
+									<input type="radio" name="option" value="1" /> <span id="opt1"></span></div>
+								<div class="option">
+									<input type="radio" name="option" value="2" /> <span id="opt2"></span></div>
+								<div class="option">
+									<input type="radio" name="option" value="3" /> <span id="opt3"></span></div>
+								<div class="option">
+									<input type="radio" name="option" value="4" /> <span id="opt4"></span></div>
+								<button id="nastepne" style="background-color: #223533;" class="next-btn" onclick="loadNextQuestion();"><font color="#bbb"> Następne pytanie </font></button>
 								
 					</div>
 					
@@ -83,14 +83,15 @@
 		<script src="quiz.js"></script>
 			
 				<div align="center">
-				
-				<a href="#zasadyquizu" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" style="background-color: #002;"><font color="#bbb"> Zasady Gry </font></a>
-				<a href="#pageone" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" style="background-color: #002;"><font color="#bbb"> Powrót do strony głównej </font></a>
+				<br><br>
+				<a href="#zasadyquizu" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" style="background-color: #344836;"><font color="#bbb"> Zasady Gry </font></a>
 				<a href="javascript:location.reload()" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" style="background-color: #344836;"><font color="#aaa"> Odśwież </font> </a>
+				<a href="#pageone" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" style="background-color: #565624;"><font color="#bbb"> Powrót do strony głównej </font></a>
+				<br>
 				</div>
 				<div id="result" class="containerResult" style="display:none;"></div>
 			</div>
-			<div data-role="footer" data-position="fixed" style="background-color: #003; ">
+			<div data-role="footer" data-position="fixed" style="background-color: #772; ">
 			<h1><font color="#eee">(c) McGoris Polska </font></h1>
 		  </div> 
 			
@@ -269,12 +270,12 @@
 				Jeżeli nie uda ci się odgadnąć i narysuje się cała konstelacja Oriona, przegrywasz.
 
 				</font>	
-					
+				<br>
 				
 				<div align="center">
-				
+				<br><br><br>
 				<a href="#wisielec" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" style="background-color: #003;"><font color="#bbb"> Powrót do gry </font> </a>
-				
+				</div>
 				</div>
 				
 				
