@@ -1,6 +1,6 @@
-var currentQuestion = 0;
 var score = 0;
 var totQuestions = questions.length;
+var currentQuestion = Math.floor(Math.random()*totQuestions);
 var values = [];
 var container = document.getElementById('quizContainer');
 var questionEl = document.getElementById('question');
@@ -10,6 +10,7 @@ var opt3 = document.getElementById('opt3');
 var opt4 = document.getElementById('opt4');
 var nextButton = document.getElementById('nextButton');
 var resultCont = document.getElementById('result');
+
 
 function checkIfOccur(cQ,values) {
 	
@@ -43,7 +44,7 @@ function sleep(milliseconds) {
 
 function loadQuestion (questionIndex) {
 	var q = questions[questionIndex];
-	questionEl.textContent = (questionIndex + 1) + '. ' + q.question;
+	questionEl.textContent = q.question;
 	opt1.textContent = q.option1;
 	opt2.textContent = q.option2;
 	opt3.textContent = q.option3;
@@ -51,21 +52,7 @@ function loadQuestion (questionIndex) {
 };
 
 function loadNextQuestion () {
-
-	var flag = false;	
-	
-
-	while (true){
-	currentQuestion =Math.floor(Math.random()*totQuestions);
-	
-		if (checkIfOccur(currentQuestion, values) == false) {
-			break;		
-		}	
-	}
-
-	
-
-	
+		
 	var selectedOption = document.querySelector('input[type=radio]:checked');
 	if(!selectedOption){
 		alert('Proszę zaznaczyć opcję!');		
@@ -75,14 +62,29 @@ function loadNextQuestion () {
 	var answer = selectedOption.value;
 	
 	if(questions[currentQuestion].answer == answer){		
-		sleep(500);
+		document.getElementById("id"+answer).style.background = "green";
+			alert("dobrze");
+				sleep(1500);
 		score += 10;
 	} else {				
-		alert('żle!');		
-		sleep(500);		
+
+		document.getElementById("id"+answer).style.background = "red";		
+			alert("zle");
+				sleep(1500);
 	}
 		
+	document.getElementById("id"+answer).style.background = '#003';
 	selectedOption.checked = false;
+	currentQuestion = Math.floor(Math.random()*totQuestions);	
+	
+	//while (true){	
+	//	if (checkIfOccur(currentQuestion, values) == false) {
+	///		break;		
+//		}	else {
+	//			currentQuestion =Math.floor(Math.random()*totQuestions);		
+//	}	
+//	}
+	
 	
 	if(currentQuestion == totQuestions - 1){
 		nextButton.textContent = 'Koniec';
